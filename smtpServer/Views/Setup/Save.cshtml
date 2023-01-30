@@ -1,0 +1,49 @@
+﻿@model smtpServer.Models.mail
+@{
+    ViewBag.Title = "Save";
+}
+
+
+@using (Html.BeginForm("Save", "Setup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <head>
+        <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+        <script src="~/ExternalJS/externalJS.js"></script>
+
+
+    </head>
+    <div class="container">
+
+        <h2>Email SMTP SERVER</h2>
+
+        <div>
+            <lable>From</lable>
+            @Html.TextBoxFor(m => m.From, new { @class = "form-control", id = "idfrom", placeholder = "Enter Recievers Emai-ID", type = "email" })
+        </div>
+        <div>
+            <lable>To</lable>
+            @Html.TextBoxFor(m => m.To, new { @class = "form-control", id = "idto", placeholder = "Enter Recievers Emai-ID", type = "email" })
+        </div>
+        <div>
+            <label>Subject</label>
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", id = "idsubject", placeholder = "Enter Subject" })
+        </div>
+        <div>
+            <lable>Body</lable>
+            @Html.TextAreaFor(m => m.Body, new { @class = "form-control", id = "idbody", placeholder = "Enter Message" })
+        </div>
+        <br />
+
+        <div>
+            <button type="submit" class="btn btn-danger" onclick="validation()">Send</button>
+        </div>
+    </div>
+
+}
+
+
+
+
+
